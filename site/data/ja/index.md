@@ -34,9 +34,16 @@ features:
       src: /icons/shield.svg
       alt: 盾
 
-usecases:
-  - title: アイデアを書き留める
-    details: 思いついたアイデアやひらめきを素早く付箋に書き留めて、後でAIと一緒に整理・発展させることができます。会議中のメモや散歩中の思いつきも、その場ですぐに記録できます。
-  - title: ちょっとした知恵置き場
-    details: 日々の学びや気づき、便利なTipsなどを付箋として保存。必要な時にすぐに見つけられ、AIが関連する情報を組み合わせて新しい洞察を提供してくれます。
----
+# sections:
+#   - title: シンプルで直感的な操作
+#     description: 付箋を貼るように、アイデアをすぐに書き留められます。複雑な操作は不要で、思いついた瞬間にメモを残せます。タグ機能で整理も簡単です。
+#     image: /window.png
+#     direction: left
+#   - title: AIとの連携でアイデアを発展
+#     description: MCP (Model Context Protocol) 対応により、様々なAIツールと連携可能。あなたのメモをベースに、AIが新しいアイデアの提案や情報の整理をサポートします。
+#     image: /tray_mcp_path.png
+#     direction: right
+#   - title: プライバシーを重視したローカル保存
+#     content: <p>全てのデータはローカルに保存され、あなたのコンピュータから外に出ることはありません。</p><ul><li>クラウド同期なしでも完全動作</li><li>オフライン環境でも利用可能</li><li>個人情報の流出リスクなし</li></ul>
+#     direction: left
+

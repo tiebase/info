@@ -15,7 +15,7 @@ const macDownloads = [
   {
     name: 'TieBase for Mac',
     description: 'Mac向けのバージョンです。',
-    url: 'https://github.com/tiebase/info/releases/download/v0.0.1/tie-x86_64-apple-darwin',
+    url: 'https://github.com/tiebase/info/releases/download/v0.0.1/TieBase_0.0.1_x64.dmg,
     filename: 'TieBase_0.1.0_x64.dmg',
     size: '48.1 MB',
     version: 'v0.1.0'

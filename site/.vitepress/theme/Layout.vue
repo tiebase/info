@@ -2,6 +2,7 @@
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import ExtensionUsecase from './components/ExtensionUsecase.vue'
+import HomePageSections from './components/HomePageSections.vue'
 
 const { Layout } = DefaultTheme
 const { frontmatter } = useData()
@@ -16,6 +17,7 @@ const { frontmatter } = useData()
         :subtitle="frontmatter.usecases.subtitle || 'TieBaseは様々なファイル形式に対応し、それぞれに最適化された機能を提供します'"
         :extensions="frontmatter.usecases.items || []"
       />
+      <HomePageSections />
     </template>
     <template #layout-bottom>
       <footer class="custom-footer">

@@ -44,6 +44,9 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useData } from 'vitepress'
+
 export interface DownloadItem {
   name: string
   description: string
@@ -59,6 +62,12 @@ export interface Props {
 }
 
 defineProps<Props>()
+
+const { lang } = useData()
+
+const downloadButtonText = computed(() => {
+  return lang.value === 'ja' ? 'ダウンロード' : 'Download'
+})
 
 // Google Analytics イベントトラッキング
 const trackDownload = (item: DownloadItem) => {

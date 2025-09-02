@@ -24,6 +24,7 @@
               :href="item.url" 
               class="download-button"
               :download="item.filename"
+              @click="trackDownload(item)"
             >
               <span>ダウンロード</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
@@ -58,6 +59,28 @@ export interface Props {
 }
 
 defineProps<Props>()
+
+// Google Analytics イベントトラッキング
+const trackDownload = (item: DownloadItem) => {
+  // gtagが存在する場合のみ送信
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', 'download', {
+      event_category: 'engagement',
+      event_label: item.name,
+      value: item.version,
+      file_name: item.filename,
+      file_url: item.url
+    })
+    
+    // デバッグ用のログ（本番環境では削除可能）
+    console.log('GA Event Sent:', {
+      event: 'download',
+      name: item.name,
+      version: item.version,
+      filename: item.filename
+    })
+  }
+}
 </script>
 
 <style scoped>

@@ -71,14 +71,6 @@ const trackDownload = (item: DownloadItem) => {
       file_name: item.filename,
       file_url: item.url
     })
-    
-    // デバッグ用のログ（本番環境では削除可能）
-    console.log('GA Event Sent:', {
-      event: 'download',
-      name: item.name,
-      version: item.version,
-      filename: item.filename
-    })
   }
 }
 </script>

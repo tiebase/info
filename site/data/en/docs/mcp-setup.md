@@ -161,8 +161,8 @@ A: Yes, the `list_tags` tool can also retrieve tag color information. -->
 For MCP-related issues or questions, please feel free to contact us:
 
 - [GitHub Issues](https://github.com/sZma5a/kacidasi/issues)
-- [Documentation](/en/docs/)
-- [Release Notes](/en/release/) -->
+- [Documentation](/docs/)
+- [Release Notes](/release/) -->
 
 ---
 

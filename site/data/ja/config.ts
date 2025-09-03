@@ -5,34 +5,34 @@ const jaConfig: LocaleConfig[string] = {
   lang: 'ja',
   themeConfig: {
     nav: [
-      { text: 'ホーム', link: '/' },
-      { text: 'ドキュメント', link: '/docs/' },
-      { text: 'ダウンロード', link: '/download' },
+      { text: 'ホーム', link: '/ja/' },
+      { text: 'ドキュメント', link: '/ja/docs/' },
+      { text: 'ダウンロード', link: '/ja/download' },
       {
         text: 'リリース',
         items: [
           {
             text: 'v0.0.1',
-            link: '/release/v0.0.1'
+            link: '/ja/release/v0.0.1'
           },
         ]
       },
     ],
     sidebar: {
-      '/docs/': [
+      '/ja/docs/': [
         {
           text: 'ドキュメント',
           items: [
-            { text: 'はじめに', link: '/docs/' }
+            { text: 'はじめに', link: '/ja/docs/' }
           ]
         }
       ],
-      '/release/': [
+      '/ja/release/': [
         {
           text: 'リリース',
           items: [
-            { text: 'リリース一覧', link: '/release/' },
-            { text: 'v0.0.1', link: '/release/v0.0.1' }
+            { text: 'リリース一覧', link: '/ja/release/' },
+            { text: 'v0.0.1', link: '/ja/release/v0.0.1' }
           ]
         }
       ]

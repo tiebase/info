@@ -5,7 +5,7 @@ export default defineConfig({
   srcDir: "data",
   title: "TieBase",
   rewrites: {
-    'ja/:rest*': ':rest*'
+    'en/:rest*': ':rest*'
   },
   cleanUrls: true,
   metaChunk: true,
@@ -26,15 +26,18 @@ export default defineConfig({
   },
   locales: {
     root: {
-      label: '日本語',
-      lang: 'ja',
+      label: 'English',
+      lang: 'en',
       themeConfig: {
+        search: {
+          provider: 'local'
+        },
         nav: [
-          { text: 'ホーム', link: '/' },
-          { text: 'ドキュメント', link: '/docs/' },
-          { text: 'ダウンロード', link: '/download' },
+          { text: 'Home', link: '/' },
+          { text: 'Docs', link: '/docs/' },
+          { text: 'Download', link: '/download' },
           {
-            text: 'リリース',
+            text: 'Release',
             items: [
               {
                 text: 'v0.0.1',
@@ -46,18 +49,18 @@ export default defineConfig({
         sidebar: {
           '/docs/': [
             {
-              text: 'ドキュメント',
+              text: 'Documentation',
               items: [
-                { text: 'はじめに', link: '/docs/' },
-                { text: 'MCP設定ガイド', link: '/docs/mcp-setup' }
+                { text: 'Getting Started', link: '/docs/' },
+                { text: 'MCP Setup Guide', link: '/docs/mcp-setup' }
               ]
             }
           ],
           '/release/': [
             {
-              text: 'リリース',
+              text: 'Release',
               items: [
-                { text: 'リリース一覧', link: '/release/' },
+                { text: 'Release Notes', link: '/release/' },
                 { text: 'v0.0.1', link: '/release/v0.0.1' }
               ]
             }
@@ -65,44 +68,41 @@ export default defineConfig({
         }
       }
     },
-    en: {
-      label: 'English',
-      lang: 'en',
-      link: '/en/',
+    ja: {
+      label: '日本語',
+      lang: 'ja',
+      link: '/ja/',
       themeConfig: {
-        search: {
-          provider: 'local'
-        },
         nav: [
-          { text: 'Home', link: '/en/' },
-          { text: 'Docs', link: '/en/docs/' },
-          { text: 'Download', link: '/en/download' },
+          { text: 'ホーム', link: '/ja/' },
+          { text: 'ドキュメント', link: '/ja/docs/' },
+          { text: 'ダウンロード', link: '/ja/download' },
           {
-            text: 'Release',
+            text: 'リリース',
             items: [
               {
                 text: 'v0.0.1',
-                link: '/en/release/v0.0.1'
+                link: '/ja/release/v0.0.1'
               },
             ]
           },
         ],
         sidebar: {
-          '/en/docs/': [
+          '/ja/docs/': [
             {
-              text: 'Documentation',
+              text: 'ドキュメント',
               items: [
-                { text: 'Getting Started', link: '/en/docs/' },
-                { text: 'MCP Setup Guide', link: '/en/docs/mcp-setup' }
+                { text: 'はじめに', link: '/ja/docs/' },
+                { text: 'MCP設定ガイド', link: '/ja/docs/mcp-setup' }
               ]
             }
           ],
-          '/en/release/': [
+          '/ja/release/': [
             {
-              text: 'Release',
+              text: 'リリース',
               items: [
-                { text: 'Release Notes', link: '/en/release/' },
-                { text: 'v0.0.1', link: '/en/release/v0.0.1' }
+                { text: 'リリース一覧', link: '/ja/release/' },
+                { text: 'v0.0.1', link: '/ja/release/v0.0.1' }
               ]
             }
           ]

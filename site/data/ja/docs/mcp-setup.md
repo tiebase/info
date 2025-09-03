@@ -161,8 +161,8 @@ A: はい、`list_tags`ツールでタグの色情報も取得できます。 --
 MCPに関する問題やご質問は、以下までお気軽にお問い合わせください：
 
 - [GitHub Issues](https://github.com/sZma5a/kacidasi/issues)
-- [ドキュメント](/docs/)
-- [リリースノート](/release/) -->
+- [ドキュメント](/ja/docs/)
+- [リリースノート](/ja/release/) -->
 
 ---
 

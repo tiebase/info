@@ -10,12 +10,12 @@ hero:
     src: /window.png
     alt: TieBase
   actions:
-    - theme: brand
-      text: Download
-      link: /en/download
-    - theme: alt
-      text: Documentation
-      link: /en/docs
+      - theme: brand
+        text: Download
+        link: /download
+      - theme: alt
+        text: Documentation
+        link: /docs
 
 features:
   - title: Sticky Note Interface

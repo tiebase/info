@@ -12,10 +12,10 @@ hero:
   actions:
     - theme: brand
       text: ダウンロード
-      link: /download
+      link: /ja/download
     - theme: alt
       text: ドキュメント
-      link: /docs
+      link: /ja/docs
 
 features:
   - title: 付箋ライクな操作

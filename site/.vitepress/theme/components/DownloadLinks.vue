@@ -20,13 +20,13 @@
           </div>
           <p class="download-card-description">{{ item.description }}</p>
           <div class="download-card-actions">
-            <a 
-              :href="item.url" 
+            <a
+              :href="item.url"
               class="download-button"
               :download="item.filename"
               @click="trackDownload(item)"
             >
-              <span>ダウンロード</span>
+              <span>{{ downloadButtonText }}</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                 <path d="M8.5 1.5A.5.5 0 0 0 8 1a.5.5 0 0 0-.5.5v7.793L4.854 6.646a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l3.5-3.5a.5.5 0 0 0-.708-.708L8.5 9.293V1.5z"/>
                 <path d="M3 15a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V9a.5.5 0 0 0-1 0v6H4V9a.5.5 0 0 0-1 0v6z"/>

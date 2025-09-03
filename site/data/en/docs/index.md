@@ -15,7 +15,7 @@ TieBase is a modern sticky notes application with the following features:
 
 ### 1. Download the Application
 
-Download the appropriate version for your Mac from the [Download page](/en/download):
+Download the appropriate version for your Mac from the [Download page](/download):
 
 ### 2. DMG File Installation
 
@@ -91,8 +91,8 @@ Try the following in Claude Desktop:
 ## Next Steps
 
 - [MCP Setup Guide](./mcp-setup) - Detailed MCP configuration instructions
-- [Download](/en/download) - Get the latest version
-- [Release Notes](/en/release/) - Check for updates
+- [Download](/download) - Get the latest version
+- [Release Notes](/release/) - Check for updates
 <!-- 
 ## Support
 

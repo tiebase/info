@@ -56,8 +56,8 @@ Due to macOS security features, a warning may appear on first launch. In that ca
 If you have any questions or issues, please feel free to contact us:
 
 - [GitHub Issues](https://github.com/your-repo/tie/issues)
-- [Documentation](/en/docs/) -->
+- [Documentation](/docs/) -->
 
 ## Release History
 
-For the latest updates, please check the [Release Notes](/en/release/).
+For the latest updates, please check the [Release Notes](/release/).

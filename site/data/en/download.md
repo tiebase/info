@@ -4,29 +4,33 @@ Download the TieBase application from the links below. Please choose the appropr
 
 <script setup>
 const macDownloads = [
-  // {
-  //   name: 'TieBase for M1 Mac',
-  //   description: 'Optimized version for Mac with Apple Silicon (M1, M2, M3) chips.',
-  //   url: 'https://static.tiebase.haribote-lab.net/release/bundle/dmg/TieBase_0.1.0_aarch64.dmg',
-  //   filename: 'TieBase_0.1.0_aarch64.dmg',
-  //   size: '45.2 MB',
-  //   version: 'v0.1.0'
-  // },
   {
     name: 'TieBase for Mac',
     description: 'Version for Mac computers.',
-    url: 'https://github.com/tiebase/info/releases/download/v0.0.1/TieBase_0.0.1_x64.dmg',
+    url: 'https://github.com/tiebase/info/releases/download/v0.1.0/TieBase_0.1.0_x64.dmg',
     filename: 'TieBase_0.1.0_x64.dmg',
     size: '48.1 MB',
     version: 'v0.1.0'
   }
 ]
+
+const oldVersions = [
+  {
+    name: 'v0.0.1',
+    url: '/release/v0.0.1'
+  }
+]
 </script>
 
-<DownloadLinks 
+<DownloadLinks
   title="Mac Version"
   :downloads="macDownloads"
 />
+
+<VersionPopover
+  label="Previous versions"
+  :links="oldVersions"
+/> 
 
 ## System Requirements
 

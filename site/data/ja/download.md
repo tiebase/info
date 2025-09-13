@@ -7,7 +7,7 @@ const macDownloads = [
   // {
   //   name: 'TieBase for M1 Mac',
   //   description: 'Apple Silicon（M1、M2、M3）チップ搭載のMac向けの最適化されたバージョンです。',
-  //   url: 'https://static.tiebase.haribote-lab.net/release/bundle/dmg/TieBase_0.1.0_aarch64.dmg',
+  //   url: 'https://static.tiebase.info/release/bundle/dmg/TieBase_0.1.0_aarch64.dmg',
   //   filename: 'TieBase_0.1.0_aarch64.dmg',
   //   size: '45.2 MB',
   //   version: 'v0.1.0'

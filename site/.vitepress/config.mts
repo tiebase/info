@@ -126,7 +126,7 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/favicon.ico' }],
   ],
   sitemap: {
-    hostname: 'https://tiebase.haribote-lab.net',
+    hostname: 'https://tiebase.info',
     transformItems(items) {
       return items.filter((item) => !item.url.includes('migration'))
     }

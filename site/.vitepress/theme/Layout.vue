@@ -22,7 +22,7 @@ const { frontmatter } = useData()
     <template #layout-bottom>
       <footer class="custom-footer">
         <div class="footer-content">
-          <p class="copyright">© {{ new Date().getFullYear() }} Haribote LAB</p>
+          <p class="copyright">© {{ new Date().getFullYear() }} Geekers</p>
         </div>
       </footer>
     </template>

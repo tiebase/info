@@ -141,4 +141,15 @@ export default defineConfig({
       return items.filter((item) => !item.url.includes('migration'))
     }
   },
+  transformPageData(pageData) {
+    const canonicalUrl = `https://tiebase.info/${pageData.relativePath}`
+      .replace(/index\.md$/, '')
+      .replace(/\.md$/, '.html')
+
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push([
+      'link',
+      { rel: 'canonical', href: canonicalUrl }
+    ])
+  }
 })

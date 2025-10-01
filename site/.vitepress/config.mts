@@ -137,9 +137,6 @@ export default defineConfig({
   ],
   sitemap: {
     hostname: 'https://tiebase.info',
-    transformItems(items) {
-      return items.filter((item) => !item.url.includes('migration'))
-    }
   },
   transformPageData(pageData) {
     const canonicalUrl = `https://tiebase.info/${pageData.relativePath}`

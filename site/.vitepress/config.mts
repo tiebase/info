@@ -123,6 +123,16 @@ export default defineConfig({
       gtag('js', new Date());
       gtag('config', 'G-8P1NSQB39J');`
     ],
+    [
+      'script',
+      {
+        id: 'Cookiebot',
+        src: 'https://consent.cookiebot.com/uc.js',
+        dataCbid: '4917c49b-7c5d-43df-b050-ca4450892bcb',
+        type: 'text/javascript',
+        async: '',
+      },
+    ],
     ['link', { rel: 'icon', href: '/favicon.ico' }],
   ],
   sitemap: {

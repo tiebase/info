@@ -23,6 +23,8 @@
             <a
               :href="buildRedirectUrl(item.url)"
               class="download-button"
+              target="_blank"
+              rel="noopener"
               @click="trackDownload(item)"
             >
               <span>{{ downloadButtonText }}</span>

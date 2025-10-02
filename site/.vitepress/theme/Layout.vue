@@ -1,11 +1,20 @@
 <script setup>
+import { watchEffect } from 'vue'
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import ExtensionUsecase from './components/ExtensionUsecase.vue'
 import HomePageSections from './components/HomePageSections.vue'
 
 const { Layout } = DefaultTheme
-const { frontmatter } = useData()
+const { frontmatter, lang } = useData()
+
+if (typeof window !== 'undefined') {
+  watchEffect(() => {
+    if (lang.value) {
+      document.documentElement.setAttribute('lang', lang.value)
+    }
+  })
+}
 </script>
 
 <template>

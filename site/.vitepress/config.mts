@@ -1,5 +1,119 @@
 import { defineConfig } from 'vitepress'
 
+const siteOrigin = 'https://tiebase.info'
+
+type PageLink = {
+  url: string
+  name: string
+  description: string
+}
+
+type HomepageStructuredDataConfig = {
+  locale: string
+  pageUrl: string
+  pageName: string
+  pageDescription: string
+  download: PageLink
+  docs: PageLink
+}
+
+const homepageStructuredData: Record<string, HomepageStructuredDataConfig> = {
+  'en/index.md': {
+    locale: 'en',
+    pageUrl: `${siteOrigin}/`,
+    pageName: 'TieBase',
+    pageDescription: 'Sticky Notes application that captures ideas and shapes them with AI through MCP integration.',
+    download: {
+      url: `${siteOrigin}/download`,
+      name: 'Download',
+      description: 'Download the latest TieBase installers for your operating system.'
+    },
+    docs: {
+      url: `${siteOrigin}/docs/`,
+      name: 'Documentation',
+      description: 'Get started with TieBase and learn how to configure MCP integrations.'
+    }
+  },
+  'ja/index.md': {
+    locale: 'ja',
+    pageUrl: `${siteOrigin}/ja/`,
+    pageName: 'TieBase',
+    pageDescription: '思いつきを書き留め、AIで形にするMCP連携可能な付箋アプリ。',
+    download: {
+      url: `${siteOrigin}/ja/download`,
+      name: 'ダウンロード',
+      description: 'TieBaseの最新インストーラーをダウンロードできます。'
+    },
+    docs: {
+      url: `${siteOrigin}/ja/docs/`,
+      name: 'ドキュメント',
+      description: 'TieBaseの使い方とMCP連携の設定方法を確認できます。'
+    }
+  }
+}
+
+const defaultHomepageKey = 'en/index.md'
+
+const jsonIndentation = 2
+
+function getHomepageStructuredData(relativePath: string) {
+  const entry = homepageStructuredData[relativePath] ??
+    (relativePath === 'index.md' ? homepageStructuredData[defaultHomepageKey] : undefined)
+
+  if (!entry) {
+    return null
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${siteOrigin}/#website`,
+        url: `${siteOrigin}/`,
+        name: 'TieBase',
+        description: 'Sticky Notes Application With MCP',
+        inLanguage: entry.locale,
+        publisher: {
+          '@type': 'Organization',
+          name: 'TieBase',
+          url: `${siteOrigin}/`
+        }
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${entry.pageUrl}#webpage`,
+        url: entry.pageUrl,
+        name: entry.pageName,
+        description: entry.pageDescription,
+        inLanguage: entry.locale,
+        isPartOf: {
+          '@id': `${siteOrigin}/#website`
+        },
+        primaryImageOfPage: `${siteOrigin}/window.png`,
+        hasPart: [
+          {
+            '@type': 'WebPage',
+            '@id': `${entry.download.url}#webpage`,
+            url: entry.download.url,
+            name: entry.download.name,
+            description: entry.download.description,
+            inLanguage: entry.locale
+          },
+          {
+            '@type': 'WebPage',
+            '@id': `${entry.docs.url}#webpage`,
+            url: entry.docs.url,
+            name: entry.docs.name,
+            description: entry.docs.description,
+            inLanguage: entry.locale
+          }
+        ]
+      }
+    ]
+  }
+}
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   srcDir: "data",
@@ -126,10 +240,10 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/favicon.ico' }],
   ],
   sitemap: {
-    hostname: 'https://tiebase.info',
+    hostname: siteOrigin,
   },
   transformPageData(pageData) {
-    const canonicalUrl = `https://tiebase.info/${pageData.relativePath}`
+    const canonicalUrl = `${siteOrigin}/${pageData.relativePath}`
       .replace(/index\.md$/, '')
       .replace(/\.md$/, '.html')
 
@@ -138,5 +252,14 @@ export default defineConfig({
       'link',
       { rel: 'canonical', href: canonicalUrl }
     ])
+
+    const structuredData = getHomepageStructuredData(pageData.relativePath)
+    if (structuredData) {
+      pageData.frontmatter.head.push([
+        'script',
+        { type: 'application/ld+json' },
+        JSON.stringify(structuredData, null, jsonIndentation)
+      ])
+    }
   }
 })

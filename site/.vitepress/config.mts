@@ -113,7 +113,7 @@ export default defineConfig({
   head: [
     [
       'script',
-      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-8P1NSQB39J' }
+      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-JHDNS8EHQM' }
     ],
     [
       'script',
@@ -121,17 +121,7 @@ export default defineConfig({
       `window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-8P1NSQB39J');`
-    ],
-    [
-      'script',
-      {
-        id: 'Cookiebot',
-        src: 'https://consent.cookiebot.com/uc.js',
-        dataCbid: '4917c49b-7c5d-43df-b050-ca4450892bcb',
-        type: 'text/javascript',
-        async: '',
-      },
+      gtag('config', 'G-JHDNS8EHQM');`
     ],
     ['link', { rel: 'icon', href: '/favicon.ico' }],
   ],

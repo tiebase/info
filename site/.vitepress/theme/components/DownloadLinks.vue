@@ -21,9 +21,8 @@
           <p class="download-card-description">{{ item.description }}</p>
           <div class="download-card-actions">
             <a
-              :href="item.url"
+              :href="buildRedirectUrl(item.url)"
               class="download-button"
-              :download="item.filename"
               @click="trackDownload(item)"
             >
               <span>{{ downloadButtonText }}</span>
@@ -68,6 +67,21 @@ const { lang } = useData()
 const downloadButtonText = computed(() => {
   return lang.value === 'ja' ? 'ダウンロード' : 'Download'
 })
+
+const redirectPath = computed(() => {
+  const currentLang = lang.value?.split('-')[0]
+  if (!currentLang || currentLang === 'en') {
+    return '/download-redirect'
+  }
+  return `/${currentLang}/download-redirect`
+})
+
+const buildRedirectUrl = (targetUrl: string) => {
+  if (!targetUrl) {
+    return redirectPath.value
+  }
+  return `${redirectPath.value}?target=${encodeURIComponent(targetUrl)}`
+}
 
 // Google Analytics イベントトラッキング
 const trackDownload = (item: DownloadItem) => {

@@ -85,17 +85,58 @@ const buildRedirectUrl = (targetUrl: string) => {
   return `${redirectPath.value}?target=${encodeURIComponent(targetUrl)}`
 }
 
-// Google Analytics イベントトラッキング
+const resolveFilename = (item: DownloadItem) => {
+  if (item.filename) {
+    return item.filename
+  }
+
+  try {
+    const parsed = new URL(item.url)
+    const path = decodeURIComponent(parsed.pathname)
+    const segments = path.split('/')
+    return segments.pop() || ''
+  } catch (error) {
+    console.warn('[DownloadLinks] Failed to parse download URL', error)
+    return ''
+  }
+}
+
+const resolveExtension = (filename: string, fallbackUrl: string) => {
+  const target = filename || fallbackUrl
+  const match = target.match(/\.([a-zA-Z0-9]+)(?:\?|$)/)
+  return match ? match[1].toLowerCase() : ''
+}
+
+// Google Analytics イベントトラッキング（GA4推奨パラメータ）
 const trackDownload = (item: DownloadItem) => {
-  // gtagが存在する場合のみ送信
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', 'download', {
-      event_category: 'engagement',
-      event_label: item.name,
-      value: item.version,
-      file_name: item.filename,
-      file_url: item.url
-    })
+  if (typeof window === 'undefined') return
+
+  const fileName = resolveFilename(item)
+  const fileExtension = resolveExtension(fileName, item.url)
+
+  const payload: Record<string, string> = {
+    link_text: item.name,
+    link_url: item.url
+  }
+
+  if (fileName) {
+    payload.file_name = fileName
+  }
+
+  if (fileExtension) {
+    payload.file_extension = fileExtension
+  }
+
+  if (item.version) {
+    payload.app_version = item.version
+  }
+
+  const w = window as any
+
+  if (typeof w.gtag === 'function') {
+    w.gtag('event', 'file_download', payload)
+  } else if (Array.isArray(w.dataLayer)) {
+    w.dataLayer.push({ event: 'file_download', ...payload })
   }
 }
 </script>
